@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251110211106_MemberEntityAdded")]
+    partial class MemberEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.10");
@@ -51,9 +54,6 @@ namespace API.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("Budget")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -84,21 +84,6 @@ namespace API.Migrations
 
                     b.Property<DateTime>("LastActive")
                         .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("MoveInDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Occupation")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("Pets")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Preferences")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("Smoking")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
